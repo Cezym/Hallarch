@@ -23,6 +23,7 @@ dependencies = [
     "python-dotenv",
     "ruff",
     "scikit-learn",
+    "seaborn>=0.13.2",
     "tqdm",
     "typer",
 ]
@@ -40,3 +41,17 @@ extend-select = ["I"]  # Add import sorting
 [tool.ruff.lint.isort]
 known-first-party = ["hallarch"]
 force-sort-within-sections = true
+
+[project.optional-dependencies]
+dev = [
+    "black==21.7b0",
+    "isort",
+    "autoflake",
+    "pylint",
+    "pre-commit",
+    "ipykernel>=7.0.1",
+    "jedi>=0.19.2",
+    "jupyterlab-lsp>=5.2.0",
+    "python-lsp-server>=1.13.1",
+    "jupyterlab>=4.4.9",
+]
