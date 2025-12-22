@@ -41,4 +41,3 @@ if uploaded_file is not None:
         st.write("Brak danych po filtrach.")
 else:
     st.write("Załaduj plik CSV.")
-
