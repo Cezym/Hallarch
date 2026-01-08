@@ -3,7 +3,7 @@
 #################################################################################
 
 PROJECT_NAME = Hallarch
-PYTHON_VERSION = 3.10
+PYTHON_VERSION = 3.11
 PYTHON_INTERPRETER = python
 
 #################################################################################
@@ -15,9 +15,6 @@ PYTHON_INTERPRETER = python
 .PHONY: requirements
 requirements:
 	uv sync
-	
-
-
 
 ## Delete all compiled Python files
 .PHONY: clean
@@ -38,13 +35,10 @@ format:
 	ruff check --fix
 	ruff format
 
-
-
 ## Run tests
 .PHONY: test
 test:
 	python -m pytest tests
-
 
 ## Set up Python interpreter environment
 .PHONY: create_environment
@@ -53,20 +47,6 @@ create_environment:
 	@echo ">>> New uv virtual environment created. Activate with:"
 	@echo ">>> Windows: .\\\\.venv\\\\Scripts\\\\activate"
 	@echo ">>> Unix/macOS: source ./.venv/bin/activate"
-	
-
-
-
-#################################################################################
-# PROJECT RULES                                                                 #
-#################################################################################
-
-
-## Make dataset
-.PHONY: data
-data: requirements
-	$(PYTHON_INTERPRETER) hallarch/dataset.py
-
 
 #################################################################################
 # Self Documenting Commands                                                     #

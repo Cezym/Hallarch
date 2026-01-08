@@ -4,13 +4,27 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
-A short description of the project.
+Celem pracy jest analiza mechanizmów prowadzących do halucynacji w modelach językowych, opis rodzajów halucynacji, wpływ poszczególnych czynników na częstość ich występowania oraz metody ich wykrywania.
+Efektem końcowym projektu będzie raport badawczy zawierający analizę zjawiska, wyniki eksperymentów, interpretację obserwowanych mechanizmów oraz opracowanie metod pozwalających lepiej rozumieć, wykrywać i przeciwdziałać tym zjawiskom.
+
+Użyte modele działały z Ollama, której obraz można łatwo pobrać i uruchomić w Docker:
+
+```commandline
+docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+```
+
+Po uruchomieniu można uruchomić komendę, która pobierze porządany model LLM (np. llama3.1:8b):
+
+```
+docker exec -it ollama ollama pull llama3.1:8b
+```
+
+
 
 ## Project Organization
 
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
+├── Makefile           <- Makefile with convenience commands
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
 │   ├── external       <- Data from third party sources.
@@ -36,8 +50,6 @@ A short description of the project.
 │
 ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
 │                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
 │
 └── hallarch   <- Source code for use in this project.
     │
