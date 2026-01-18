@@ -4,9 +4,30 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
+## Cel pracy
 Celem pracy jest analiza mechanizmów prowadzących do halucynacji w modelach językowych, opis rodzajów halucynacji, wpływ poszczególnych czynników na częstość ich występowania oraz metody ich wykrywania.
 Efektem końcowym projektu będzie raport badawczy zawierający analizę zjawiska, wyniki eksperymentów, interpretację obserwowanych mechanizmów oraz opracowanie metod pozwalających lepiej rozumieć, wykrywać i przeciwdziałać tym zjawiskom.
 
+## Pobranie zależności za pomocą uv
+1. Należy zainstalować narzędzie do zarządzania wirtualnymi środowiskami UV (podobne do Condy). Polecenia
+wykorzystywane do zainstalowania jej można znaleźć na jej oficjalnej stronie (https://docs.astral.sh/uv/).
+
+Dla macOS i linux:
+```commandline
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Dla Windows:
+```commandline
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+2. Po zainstalowaniu UV, aby pobrać zależności projektu należy wywołać w terminalu poleceniem
+
+```commandline
+uv sync
+```
+
+## Ollama
 Użyte modele działały z Ollama, której obraz można łatwo pobrać i uruchomić w Docker:
 
 ```commandline
@@ -19,12 +40,22 @@ Po uruchomieniu konteneru Ollama można wprowadzić komendę, która pobierze po
 docker exec -it ollama ollama pull llama3.1:8b
 ```
 
-
-
-## Project Organization
+Lub od razu wszystkie użyte w projekcie:
+- deepseek-v2:16b
+- gemma3:12b
+- llama3.1:8b
+- mistral:7b
 
 ```
-├── Makefile           <- Makefile with convenience commands
+docker exec -it ollama ollama pull deepseek-v2:16b && docker exec -it ollama ollama pull gemma3:12b && docker exec -it ollama ollama pull llama3.1:8b && docker exec -it ollama ollama pull mistral:7b
+```
+
+
+
+## Struktura projektu
+
+```
+├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
 ├── README.md          <- The top-level README for developers using this project.
 ├── data
 │   ├── external       <- Data from third party sources.
@@ -32,13 +63,9 @@ docker exec -it ollama ollama pull llama3.1:8b
 │   ├── processed      <- The final, canonical data sets for modeling.
 │   └── raw            <- The original, immutable data dump.
 │
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
+├── docs               <- The docs folder
 │
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+├── notebooks          <- Jupyter notebooks
 │
 ├── pyproject.toml     <- Project configuration file with package metadata for 
 │                         hallarch and configuration for tools like black
@@ -46,10 +73,6 @@ docker exec -it ollama ollama pull llama3.1:8b
 ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
 │
 ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
 │
 └── hallarch   <- Source code for use in this project.
     │
