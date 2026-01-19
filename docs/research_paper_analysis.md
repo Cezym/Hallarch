@@ -1,0 +1,7 @@
+# Analiza artykułów naukowych
+
+## Tabela zawierająca informacje o poszczególnych artykułach naukowych
+
+| Link do artykułu | Tytuł artykułu | Autorzy | Autorski komentarz | Dostępny kod | Dostępne pre-trenowane modele | Metryki ewaluacji | Wykorzystane zasoby obliczeniowe |
+|------------------|----------------|---------|--------------------|--------------|-------------------------------|-------------------|----------------------------------|
+|                  |                |         |                    |              |                               |                   |                                  |
