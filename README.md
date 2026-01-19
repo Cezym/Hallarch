@@ -55,41 +55,36 @@ docker exec -it ollama ollama pull deepseek-v2:16b && docker exec -it ollama oll
 ## Struktura projektu
 
 ```
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
+├── data/                  - Dane używane w projekcie
+│   ├── external/          - Zewnętrzne źródła danych (np. pobrane z internetu)
+│   ├── interim/           - Dane pośrednie, przetworzone częściowo
+│   ├── merged_en_de_es.csv - Przykładowy złączony zbiór danych
+│   ├── processed/- Dane w pełni przetworzone i gotowe do modelowania
+│   └── raw/- Surowe dane wejściowe
 │
-├── docs               <- The docs folder
+├── design_proposal.md	- Dokumentacja projektowa / propozycja architektury
 │
-├── notebooks          <- Jupyter notebooks
+├── detector/			- Aplikacja Streamlit i backend do detekcji halucynacji
+│   ├── app.py		- Interfejs użytkownika (Streamlit)
+│   └── backend.py		- Logika detektorów halucynacji i funkcje pomocnicze
 │
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         hallarch and configuration for tools like black
+├── docs/			- Dokumentacja, diagramy, raporty techniczne
+│   ├── articles_details.pdf	- analiza literaturowa
+│   ├── Raport.pdf		- cała dokumentacja projektu
+├── notebooks/		- Notatniki Jupyter z eksperymentami
+├── chain_of_thought.ipynb
+├── language.ipynb
+├── multiple_choice_baseline_critique_consistency.ipynb
+├── truthfulqa_baseline_self_critique_self_consistency_analysis.ipynb
+├── truthfulqa_experiment.ipynb
 │
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│
-└── hallarch   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes hallarch a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+├── pyproject.toml        - Plik konfiguracyjny dla środowiska Python / build
+├── README.md              - Podstawowa dokumentacja i instrukcje uruchomienia
+├── reports/               - Raporty i wyniki eksperymentów
+│   └── truthfulqa/        - Raporty z eksperymentów TruthfulQA
+├── temp.pdf               - Tymczasowy plik PDF do testów RAG / detekcji
+└── uv.lock                - Plik blokady środowiska (np. pipenv/poetry)
+
 ```
 
 --------
