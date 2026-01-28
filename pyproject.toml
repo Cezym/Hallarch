@@ -11,6 +11,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
+    "faiss-cpu>=1.13.2",
     "ipython",
     "jupyterlab",
     "loguru",
@@ -21,6 +22,7 @@ dependencies = [
     "pandas",
     "pip",
     "plotly>=6.5.0",
+    "pypdf>=6.6.2",
     "pytest",
     "python-dotenv",
     "ruff",
